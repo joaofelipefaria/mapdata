@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.validation.Valid;
 import lu.joaofaria.java.samples.mapdata.api.dto.MapDataDTO;
 import lu.joaofaria.java.samples.mapdata.api.exception.ResourceNotFoundException;
 import lu.joaofaria.java.samples.mapdata.api.model.MapData;
@@ -49,7 +48,7 @@ public class MapDataController {
 	}
 
 	@PostMapping("/data")
-	public MapData createData(@Valid @RequestBody MapData data) {
+	public MapData createData(@RequestBody MapData data) {
 		data.setId(0);
 		return mapDataRepository.save(data);
 	}
