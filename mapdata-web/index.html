@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapdata Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #createForm, #metadataFormContainer, #detailsSection {
+            margin-top: 20px;
+        }
+        #createForm, #metadataFormContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">Mapdata Management</h1>
+        <div id="message" class="alert" role="alert"></div>
+        
+        <!-- Query Data Button -->
+        <div class="text-center">
+            <button id="queryDataButton" class="btn btn-primary" onclick="queryData()">Query Data</button>
+        </div>
+
+        <!-- Data Table Section -->
+        <div id="dataTableContainer" style="display:none;">
+            <table id="dataTable" class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Value</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="text-center">
+                <button id="createDataButton" class="btn btn-success" onclick="showCreateForm()">Create Data</button>
+            </div>
+        </div>
+
+        <!-- Create/Edit Data Form -->
+        <div id="createForm" class="card">
+            <div class="card-body">
+                <h2>Create/Edit Data</h2>
+                <form id="dataForm" onsubmit="handleSubmit(event)">
+                    <input type="hidden" id="mapdataId" />
+                    <div class="form-group">
+                        <label for="value">Value:</label>
+                        <input type="text" id="value" class="form-control" required>
+                    </div>
+                    <button type="submit" id="submitButton" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Metadata Section -->
+        <div id="detailsSection" style="display: none;">
+            <h2>Metadata</h2>
+            <table id="metadataTable" class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Value 1</th>
+                        <th>Value 2</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="text-center">
+                <button id="createMetadataButton" class="btn btn-success" onclick="showCreateMetadataForm()">Create Metadata</button>
+            </div>
+        </div>
+
+        <!-- Create/Edit Metadata Form -->
+        <div id="metadataFormContainer" class="card">
+            <div class="card-body">
+                <h2>Create/Edit Metadata</h2>
+                <form id="metadataForm" onsubmit="handleMetadataSubmit(event)">
+                    <input type="hidden" id="metadataId" />
+                    <div class="form-group">
+                        <label for="value1">Value 1:</label>
+                        <input type="text" id="value1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="value2">Value 2:</label>
+                        <input type="text" id="value2" class="form-control" required>
+                    </div>
+                    <button type="submit" id="submitMetadataButton" class="btn btn-primary">Save Metadata</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dom.js"></script>
+</body>
+</html>
