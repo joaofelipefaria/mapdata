@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  gitlab:
+    container_name: mapdata-gitlab
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    hostname: gitlab.local
+    ports:
+      - "80:80"       # Interface Web
+      - "443:443"     # HTTPS (se necessário)
+      - "2222:22"     # SSH para Git
+    volumes:
+      - ./gitlab/config:/etc/gitlab
+      - ./gitlab/logs:/var/log/gitlab
+      - ./gitlab/data:/var/opt/gitlab
+    networks:
+      - gitlab_network
+      - mapdata-network
+
+networks:
+  gitlab_network:
+    driver: bridge
+  mapdata-network:
+    external: true
