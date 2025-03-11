@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mapdata-api:
+    container_name: mapdata-api
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://mapdata-db:5432/mapdata_db
+      - SPRING_DATASOURCE_USERNAME=joaofaria_user
+      - SPRING_DATASOURCE_PASSWORD=my_pwd_123
+    networks:
+      - mapdata-network
+
+networks:
+   mapdata-network:
+      external: true
