@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api;
+package lu.joaofaria.java.mapdata.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

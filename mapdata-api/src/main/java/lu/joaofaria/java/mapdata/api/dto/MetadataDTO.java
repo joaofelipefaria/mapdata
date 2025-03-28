@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api.dto;
+package lu.joaofaria.java.mapdata.api.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

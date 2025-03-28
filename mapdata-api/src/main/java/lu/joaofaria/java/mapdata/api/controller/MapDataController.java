@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api.controller;
+package lu.joaofaria.java.mapdata.api.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lu.joaofaria.java.hello.api.dto.MapdataDTO;
-import lu.joaofaria.java.hello.api.dto.MetadataDTO;
-import lu.joaofaria.java.hello.api.entity.MetadataEntity;
-import lu.joaofaria.java.hello.api.service.MapDataService;
+import lu.joaofaria.java.mapdata.api.dto.MapdataDTO;
+import lu.joaofaria.java.mapdata.api.dto.MetadataDTO;
+import lu.joaofaria.java.mapdata.api.entity.MetadataEntity;
+import lu.joaofaria.java.mapdata.api.service.MapDataService;
 
 @RestController
 @RequestMapping("/api")

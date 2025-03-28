@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api.service;
+package lu.joaofaria.java.mapdata.api.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,12 +9,12 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lu.joaofaria.java.hello.api.dto.MapdataDTO;
-import lu.joaofaria.java.hello.api.dto.MetadataDTO;
-import lu.joaofaria.java.hello.api.entity.MapdataEntity;
-import lu.joaofaria.java.hello.api.entity.MetadataEntity;
-import lu.joaofaria.java.hello.api.repository.MapDataRepository;
-import lu.joaofaria.java.hello.api.repository.MetadataRepository;
+import lu.joaofaria.java.mapdata.api.dto.MapdataDTO;
+import lu.joaofaria.java.mapdata.api.dto.MetadataDTO;
+import lu.joaofaria.java.mapdata.api.entity.MapdataEntity;
+import lu.joaofaria.java.mapdata.api.entity.MetadataEntity;
+import lu.joaofaria.java.mapdata.api.repository.MapDataRepository;
+import lu.joaofaria.java.mapdata.api.repository.MetadataRepository;
 
 @Service
 public class MapDataService {

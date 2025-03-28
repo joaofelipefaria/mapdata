@@ -1,6 +1,4 @@
-package lu.joaofaria.java.hello.api.repository;
-
-import lu.joaofaria.java.hello.api.entity.MetadataEntity;
+package lu.joaofaria.java.mapdata.api.repository;
 
 import java.util.List;
 
@@ -10,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import lu.joaofaria.java.mapdata.api.entity.MetadataEntity;
 
 @Repository
 public interface MetadataRepository extends JpaRepository<MetadataEntity, Integer> {

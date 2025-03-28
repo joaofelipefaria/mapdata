@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api.entity;
+package lu.joaofaria.java.mapdata.api.entity;
 
 import java.util.List;
 

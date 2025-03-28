@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.api.config;
+package lu.joaofaria.java.mapdata.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

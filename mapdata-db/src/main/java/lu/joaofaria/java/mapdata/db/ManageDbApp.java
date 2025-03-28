@@ -1,4 +1,4 @@
-package lu.joaofaria.java.hello.db;
+package lu.joaofaria.java.mapdata.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -12,11 +12,11 @@ compose_dirs = [
 ]
 
 # Comando base para rodar o Docker Compose
-command = ["docker-compose", "stop"]
+command = ["docker-compose", "up", "-d"]
 
 # Loop para iniciar os serviços de cada projeto
 for directory in compose_dirs:
-    print(f"Stoping Docker Compose in {directory}...")
+    print(f"Starting Docker Compose in {directory}...")
     subprocess.run(command, cwd=directory, check=True)
 
-print("All Docker Compose services Stoping successfully!")
+print("All Docker Compose services started successfully!")
