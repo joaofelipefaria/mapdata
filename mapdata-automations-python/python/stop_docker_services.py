@@ -2,9 +2,9 @@ import subprocess
 
 # Lista de diretórios contendo os arquivos docker-compose.yml
 compose_dirs = [
-    "../../mapdata-db/docker/",
+    #"../../mapdata-db/docker/",
     #"../../mapdata-api/docker/",
-    #"../../mapdata-app/docker/",
+    "../../mapdata-app/docker/",
     #"../../mapdata-infra/git/docker/",
     #"../../mapdata-infra/jira/docker/",
     #"../../mapdata-infra/oauth/docker/",

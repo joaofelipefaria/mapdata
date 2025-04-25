@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.1 # Use a specific version of Keycloak
+    container_name: mapdata-keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin # Admin username
+      KEYCLOAK_ADMIN_PASSWORD: admin # Admin password
+      KC_DB: postgres # Database type
+      KC_DB_URL_HOST: mapdata-keycloak-db # Database host
+      KC_DB_URL_DATABASE: keycloak # Database name
+      KC_DB_USERNAME: keycloak # Database username
+      KC_DB_PASSWORD: keycloak # Database password
+    ports:
+      - "6080:8080" # Expose Keycloak on port 8080
+    depends_on:
+      - mapdata-keycloak-db
+    command: start-dev # Start Keycloak in development mode
+
+  mapdata-keycloak-db:
+    image: postgres:15
+    container_name: mapdata-keycloak-db
+    environment:
+      POSTGRES_DB: keycloak # Database name
+      POSTGRES_USER: keycloak # Database username
+      POSTGRES_PASSWORD: keycloak # Database password
+    volumes:
+      - keycloak-db-data:/var/lib/postgresql/data
+    ports:
+      - "6032:5432" # Expose PostgreSQL on port 5432
+
+volumes:
+  keycloak-db-data:
