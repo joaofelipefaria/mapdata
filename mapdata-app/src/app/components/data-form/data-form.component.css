@@ -1,0 +1,53 @@
+.data-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .data-form h2 {
+    text-align: center;
+  }
+  
+  .data-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .data-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .data-form input[readonly] {
+    background-color: #f0f0f0;
+  }
+  
+  .data-form .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .data-form button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .data-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .data-form button:hover {
+    background-color: #0056b3;
+  }
+  

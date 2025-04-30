@@ -1,0 +1,50 @@
+  <div class="data-form">
+    <h3>{{ metadata?.id === 0 ? 'Create Meta Data' : 'Edit Meta Data' }}</h3>
+  
+    <form (ngSubmit)="onSubmit()" *ngIf="metadata">
+      <div>
+        <label for="id">ID:</label>
+        <input   type="number" 
+          id="id" 
+          [(ngModel)]="metadata.id" 
+          readonly="false"
+          name="id" 
+        />
+      </div>
+      <div>
+        <label for="dataId">data-ID:</label>
+        <input   type="number" 
+          id="dataId" 
+          [(ngModel)]="metadata.dataId" 
+          readonly="false"
+          name="dataId" 
+        />
+      </div>
+  
+      <div>
+        <label for="value1">Value 1:</label>
+        <input 
+          type="text" 
+          id="value1" 
+          [(ngModel)]="metadata.value1" 
+          name="value1" 
+          required
+        />
+      <div>
+        <label for="value2">Value 2:</label>
+        <input 
+          type="text" 
+          id="value2" 
+          [(ngModel)]="metadata.value2" 
+          name="value2" 
+        />
+      </div>
+  
+      <div class="form-buttons">
+        <button type="submit" [disabled]="!metadata.value1">
+          Submit Data
+        </button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+  </div>  
+  

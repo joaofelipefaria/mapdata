@@ -1,0 +1,41 @@
+<div *ngIf="data && data.length > 0; else loading">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>{{ item.value }}</td>
+        <td>
+          <!-- Action buttons (edit, delete) can be added here -->
+          <button (click)="editData(item.id)">Edit</button>
+          <button (click)="deleteData(item.id)">Delete</button>
+          <button (click)="showDetails(item.id)">Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Button to create new data -->
+  <button (click)="createData()">Create Data</button>
+</div>
+
+<ng-template #loading>
+  <p>Loading data...</p> <!-- Displayed while data is being fetched -->
+</ng-template>
+
+<div *ngIf="showDataForm">
+  <app-data-form 
+  [formData]="selectedData"
+  (formSubmit)="onFormSubmit($event)" 
+  (cancel)="onCancel()"></app-data-form>
+</div>
+
+<div *ngIf="showMetadata">
+  <app-metadata-list [dataId]="selectedData?.id ?? 0"></app-metadata-list>
+</div>

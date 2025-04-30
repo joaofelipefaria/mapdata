@@ -1,0 +1,39 @@
+<div *ngIf="metadata.length > 0">
+
+    <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Value1</th>
+            <th>Value2</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of metadata">
+            <td>{{ item.id }}</td>
+            <td>{{ item.value1 }}</td>
+            <td>{{ item.value2 }}</td>
+            <td>
+              <!-- Action buttons (edit, delete) can be added here -->
+              <button (click)="editMetadata(item.id)">Edit</button>
+              <button (click)="deleteMetadata(item.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
+  <div *ngIf="metadata.length === 0">
+    <p>No metadata available for this data item. dataID: {{dataId}}</p>
+  </div>
+  <!-- Button to create new data -->
+  <button (click)="createMetadata()">Create Meta Data</button>
+
+<div *ngIf="showMetadataForm">
+    <app-metadata-form [metadata]="selectedMetadata" 
+    [metadata]="selectedMetadata"
+    (formSubmit)="onFormSubmit($event)" 
+    (cancel)="onCancel()"></app-metadata-form>
+  </div>
+  
