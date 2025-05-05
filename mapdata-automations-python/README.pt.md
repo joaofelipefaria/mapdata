@@ -62,4 +62,4 @@ Este projeto contém uma coleção de scripts Python para automatizar diversas t
 ## Notas
 
 - Certifique-se de que Docker e Docker Compose estão instalados e configurados no seu sistema.
-- Atualize as listas `compose_dirs` nos scripts para incluir ou excluir serviços específicos conforme necessário.
+- Atualize as listas `scripts_to_run` no arquivo run_env.py nos scripts para incluir ou excluir serviços específicos conforme necessário.
