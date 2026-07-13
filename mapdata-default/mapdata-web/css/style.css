@@ -1,0 +1,22 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #343a40;
+}
+
+#makeRequestBtn {
+    width: 200px;
+    height: 50px;
+}
+
+#resultTable {
+    display: none;
+    padding: 10px;
+    border: 1px solid #343a40;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #343a40;
+}
