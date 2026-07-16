@@ -15,6 +15,8 @@
 		<postgre.version>42.3.1</postgre.version>
 		<lombok.version>1.18.24</lombok.version>
 		<jaxb.version>2.3.1</jaxb.version>
+		<jwt.version>0.12.7</jwt.version>
+		<jackson.version>2.15.3</jackson.version>
 	</properties>
 	<dependencies>
 		<!-- Spring Boot starter for JPA data access -->
@@ -61,6 +63,34 @@
 			<artifactId>jaxb-runtime</artifactId>
 			<version>${jaxb.version}</version>
 		</dependency>
+		<!-- JWT implementation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jwt.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${jwt.version}</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -68,16 +98,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring.boot.version}</version>
-		        <configuration>
-		            <mainClass>br.com.jfelipefaria.mapdata.api.MapDataApp</mainClass>
-		            <layout>JAR</layout>
-		        </configuration>
-		        <executions>
-				    <execution>
-				        <goals>
-				            <goal>repackage</goal>
-				        </goals>
-				    </execution>
+				<configuration>
+					<mainClass>br.com.jfelipefaria.mapdata.api.MapDataApp</mainClass>
+					<layout>JAR</layout>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>

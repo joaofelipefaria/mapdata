@@ -15,13 +15,15 @@ export class DataService implements IDataService {
 
   // Returns all data items from the API
   getData(): Observable<Data[]> {
-    return StaticHttpClientService.getHttpClient().get<Data[]>(this.apiUrl + '/all'); // HTTP GET to fetch all data
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().get<Data[]>(this.apiUrl + '/all', { headers }); // HTTP GET to fetch all data
   }
 
   // Returns a specific data item by ID from the API
   getDataById(id: number): Observable<Data | undefined> {
     const url = `${this.apiUrl}/${id}`; // API endpoint for fetching a single item by ID
-    return StaticHttpClientService.getHttpClient().get<Data>(url); // HTTP GET to fetch data by ID
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().get<Data>(url, { headers }); // HTTP GET to fetch data by ID
   }
 
   // Creates a new data item by sending a POST request to the API
@@ -30,7 +32,7 @@ export class DataService implements IDataService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
-    });
+    }).set('Authorization', `Bearer ${localStorage.getItem('jwt_token') || ''}`);
 
     return StaticHttpClientService.getHttpClient().post<Data>(this.apiUrl, jsonData, { headers }).pipe(
       tap(response => {
@@ -44,13 +46,15 @@ export class DataService implements IDataService {
   // Updates an existing data item by ID through PUT request to the API
   updateData(id: number, updatedData: Data): Observable<Data | undefined> {
     const url = `${this.apiUrl}/${id}`; // API endpoint for updating data by ID
-    return StaticHttpClientService.getHttpClient().put<Data>(url, updatedData); // HTTP PUT to update data
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().put<Data>(url, updatedData, { headers }); // HTTP PUT to update data
   }
 
   // Deletes a data item by ID through DELETE request to the API
   deleteData(id: number): Observable<boolean> {
     const url = `${this.apiUrl}/${id}`; // API endpoint for deleting data by ID
-    return StaticHttpClientService.getHttpClient().delete<boolean>(url); // HTTP DELETE to remove data
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().delete<boolean>(url, { headers }); // HTTP DELETE to remove data
   }
 
   // CRUD operations for Metadata
@@ -58,30 +62,35 @@ export class DataService implements IDataService {
   // Returns metadata items associated with a specific dataId
   getMetadataByDataId(dataId: number): Observable<Metadata[]> {
     const metadataUrl = `${this.apiUrl}/${dataId}/metadata`; // Endpoint for metadata by dataId
-    return StaticHttpClientService.getHttpClient().get<Metadata[]>(metadataUrl); // HTTP GET to fetch metadata by dataId
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().get<Metadata[]>(metadataUrl, { headers }); // HTTP GET to fetch metadata by dataId
   }
 
   // Returns a specific metadata item by ID
   getMetadataById(id: number, dataId: number): Observable<Metadata | undefined> {
     const metadataUrl = `${this.apiUrl}/${dataId}/metadata/${id}`; // Endpoint for fetching metadata by ID
-    return StaticHttpClientService.getHttpClient().get<Metadata>(metadataUrl); // HTTP GET to fetch metadata by ID
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().get<Metadata>(metadataUrl, { headers }); // HTTP GET to fetch metadata by ID
   }
 
   // Creates a new metadata item by sending a POST request to the API
   createMetadata(newMetadata: Metadata): Observable<Metadata> {
     const metadataUrl = `${this.apiUrl}/${newMetadata.dataId}/metadata`; // Adjusted endpoint for creating metadata
-    return StaticHttpClientService.getHttpClient().post<Metadata>(metadataUrl, newMetadata); // HTTP POST for creating metadata
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().post<Metadata>(metadataUrl, newMetadata, { headers }); // HTTP POST for creating metadata
   }
 
   // Updates an existing metadata item by ID through PUT request to the API
   updateMetadata(id: number, updatedMetadata: Metadata): Observable<Metadata | undefined> {
     const metadataUrl = `${this.apiUrl}/${updatedMetadata.dataId}/metadata/${id}`; // Endpoint for updating metadata by ID
-    return StaticHttpClientService.getHttpClient().put<Metadata>(metadataUrl, updatedMetadata); // HTTP PUT for updating metadata
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().put<Metadata>(metadataUrl, updatedMetadata, { headers }); // HTTP PUT for updating metadata
   }
 
   // Deletes a metadata item by ID through DELETE request to the API
   deleteMetadata(id: number, dataId: number): Observable<boolean> {
     const metadataUrl = `${this.apiUrl}/${dataId}/metadata/${id}`; // Endpoint for deleting metadata by ID
-    return StaticHttpClientService.getHttpClient().delete<boolean>(metadataUrl); // HTTP DELETE for removing metadata
+    const headers = StaticHttpClientService.getAuthHeaders();
+    return StaticHttpClientService.getHttpClient().delete<boolean>(metadataUrl, { headers }); // HTTP DELETE for removing metadata
   }
 }

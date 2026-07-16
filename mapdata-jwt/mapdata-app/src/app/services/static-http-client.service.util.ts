@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class StaticHttpClientService {
   static httpClient: HttpClient;
@@ -9,5 +9,12 @@ export class StaticHttpClientService {
 
   static getHttpClient(): HttpClient {
     return StaticHttpClientService.httpClient;
+  }
+
+  static getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('jwt_token');
+    return new HttpHeaders({
+      Authorization: token ? `Bearer ${token}` : ''
+    });
   }
 }
