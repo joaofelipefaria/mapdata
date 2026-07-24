@@ -63,9 +63,9 @@ def main():
     scripts_to_run = [
         ("start_docker_services_db.py", "Starting docker services (mapdata-db)", 5)
         ,("run_mapdata_db_maven.py", "Running database creation", 1)
-        # ,("build_mapdata_api.py", "Building mapdata-api project", 1)
-        # ,("start_docker_services_api.py", "Starting docker java backend services (mdapdata-api)", 5)
-        # ,("start_docker_services_app.py", "Starting docker angular application (mdapdata-app)", 1)
+        ,("build_mapdata_api.py", "Building mapdata-api project", 1)
+        ,("start_docker_services_api.py", "Starting docker java backend services (mdapdata-api)", 5)
+        ,("start_docker_services_app.py", "Starting docker angular application (mdapdata-app)", 1)
     ]
 
     total_scripts = len(scripts_to_run)
